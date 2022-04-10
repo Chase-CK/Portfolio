@@ -10,6 +10,7 @@ To create an asynchronous hangman game with user login validation, and registrat
 - Websockets
 
 ## Design
-- [Game layout]()
-- []()
-- []()
+- ![Game layout](hangman1.png)
+- ![Game layout](hangman2.png)
+- ![Game layout](hangman3.png)
+- ![Game layout](hangman4.png)
