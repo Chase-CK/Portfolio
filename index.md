@@ -5,8 +5,8 @@
 
 
 Take a look at some of the projects I have worked on.
-- [Speed Game Project](Portfolio/SpeedGameProject)
-- [Hangman Game Project](Portfolio/HangmanGameProject)
-- [Guessing Game Project](Portfolio/GuessingGameProject)
+- [Speed Game Project](SpeedProject.md)
+- [Hangman Game Project](HangmanGameProject.md)
+- [Guessing Game Project](GuessingGameProject.md)
 
 
