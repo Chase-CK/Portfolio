@@ -8,7 +8,7 @@ permalink: /SpeedProject/
 - To build an asynchronous web app with Draggable, and droppable cards.
 
 # The Layout of the game
-![GIF](speedgif.gif)
+![GIF](Untitled design.gif)
 
 
 ## Technologies
