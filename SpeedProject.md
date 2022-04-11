@@ -3,7 +3,7 @@
 ## Objective
 - To build an asynchronous web app with Draggable, and droppable cards.
 
-# The Layout of the game
+# Design
 - ![GIF](speedgif2.gif)
 
 
