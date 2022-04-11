@@ -18,3 +18,7 @@ To create an asynchronous hangman game with user login validation, and registrat
 - ![Game layout](hangman3.png)
 ### The Login Page
 - ![Game layout](hangman4.png)
+
+
+### Download
+- [Hangman](https://github.com/seanafoster/Hangman/archive/refs/heads/master.zip)
