@@ -1,14 +1,10 @@
-layout: page
-title: "SpeedProject"
-permalink: /SpeedProject/
-
 # Speed Project
 
 ## Objective
 - To build an asynchronous web app with Draggable, and droppable cards.
 
 # The Layout of the game
-![GIF](speedgif2.gif)
+- ![GIF](speedgif2.gif)
 
 
 ## Technologies
