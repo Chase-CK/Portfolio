@@ -12,4 +12,5 @@ To build a simple guessing game web application with PHP. To have login validati
 - ![guess](guess1.png)
 - ![guess](guess2.png)
 
-
+## Execution
+To build this application I used PHP to write the server side game logic, login validation, and database connected services. 
