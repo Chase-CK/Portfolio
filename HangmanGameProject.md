@@ -34,12 +34,12 @@ To create an asynchronous hangman game with user login validation, and registrat
 C# websocket controller code
 
 ```c#
-public string Guess(string currWord, char[] b)
+        public string Guess(string currWord, char[] b)
         {
             char c = b.FirstOrDefault();                      
             string message = "";
             
-            // for each letter in currentWord add to list letters
+            // for each letter in currentWord add to list of letters
             // if current word contains result/guess send correct or wrong message
             for (int i = 0; i < 1; i++)
             {
@@ -63,9 +63,11 @@ public string Guess(string currWord, char[] b)
                         message = "Used letter";
                         break;
                     }
+                    
                     letters.Add(c);
                     var x = HttpContext.Session.GetString("corGuess");
                     HttpContext.Session.SetString("corGuess", x + c);
+                    
                     for (int j = 0; j < currWord.Length; j++)
                     {
                         if(char.ToLower(currWord[j]) == char.ToLower(c))
@@ -98,12 +100,14 @@ public string Guess(string currWord, char[] b)
 Javascript game code
 
 ```javascript
-sendButton.onclick = function () {
+    sendButton.onclick = function () {
         if (!socket || socket.readyState !== WebSocket.OPEN) {
             alert("socket not connected");
         }
+        
         var data = sendMessage.value;
         let length = data.length;
+        
         if(length > 1){
             alert("Please enter one character");
         }
@@ -116,9 +120,10 @@ sendButton.onclick = function () {
     };
 
 
- connectButton.onclick = function() {
+    connectButton.onclick = function() {
         stateLabel.innerHTML = "Connecting";
         socket = new WebSocket(connectionUrl.value);
+        
         socket.onopen = function (event) {
             updateState();
             commsLog.innerHTML += '<tr>' +
@@ -135,9 +140,11 @@ sendButton.onclick = function () {
         let counter = 1;
 
         socket.onerror = updateState;
+        
         socket.onmessage = function (event) {             
             commsLog.innerHTML += '<tr>' +      
                 '<td class="commslog-data">' + htmlEscape(event.data) + '</td></tr>';
+                
                   if(event.data == 'Incorrect' || event.data == 'Used letter' || event.data == 'You Lost!!!'){
                     counter++;
                     hangman.src = "hangman" + counter + ".png";
