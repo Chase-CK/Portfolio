@@ -30,8 +30,8 @@ To accomplish the key features of this game We used the SignalR library for asyn
 
 Blazor Component code
 
-`
-@if (IsPlayerOne)
+
+` @if (IsPlayerOne)
         {
             
             //PlayerOne (current player) play and pull piles on the left
@@ -59,8 +59,8 @@ Blazor Component code
 `
 
 SignalR Hub code
-`
-public async Task PlayCard(Table table, Card card, string playerGuid, bool pileOne) 
+
+` public async Task PlayCard(Table table, Card card, string playerGuid, bool pileOne) 
         {
             int playerNum = GetPlayerNumber(playerGuid);
 
