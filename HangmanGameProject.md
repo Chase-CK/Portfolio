@@ -31,6 +31,70 @@ To create an asynchronous hangman game with user login validation, and registrat
 
 ## Code snippets of my work
 
+C# websocket controller code
+
+```c#
+public string Guess(string currWord, char[] b)
+        {
+            char c = b.FirstOrDefault();                      
+            string message = "";
+            
+            // for each letter in currentWord add to list letters
+            // if current word contains result/guess send correct or wrong message
+            for (int i = 0; i < 1; i++)
+            {
+                if(counter == currWord.Length-1)
+                {
+                    saveScoreAsync(uId, counter, currWord);
+                    message = "You Win!!!";
+                    break;
+                }
+                if(loserCount == 5)
+                {
+                    saveScoreAsync(uId, counter, currWord);
+                    message = "You Lost!!!";
+                    break;
+                }
+                if (currWord.Contains(c))
+                {                    
+                    if (letters.Contains(c))
+                    {
+                        loserCount++;
+                        message = "Used letter";
+                        break;
+                    }
+                    letters.Add(c);
+                    var x = HttpContext.Session.GetString("corGuess");
+                    HttpContext.Session.SetString("corGuess", x + c);
+                    for (int j = 0; j < currWord.Length; j++)
+                    {
+                        if(char.ToLower(currWord[j]) == char.ToLower(c))
+                        {
+                            counter++;
+                        }                        
+                    }                    
+                    message = "Correct";
+                    break;
+                }
+                loserCount++;
+                message = "Incorrect";
+                
+            }
+            return message;
+        }       
+        public async Task saveScoreAsync(int id, int score, string currW)
+        {
+            var newScore = new Scores
+            {
+                UserId = id,
+                Score = score,
+                WordPlayed = currW,
+            };
+
+            _context.Scores.Add(newScore);
+            await _context.SaveChangesAsync();
+        }
+```
 
 
 ### Download
