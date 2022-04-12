@@ -95,7 +95,65 @@ public string Guess(string currWord, char[] b)
             await _context.SaveChangesAsync();
         }
 ```
+Javascript game code
 
+```javascript
+sendButton.onclick = function () {
+        if (!socket || socket.readyState !== WebSocket.OPEN) {
+            alert("socket not connected");
+        }
+        var data = sendMessage.value;
+        let length = data.length;
+        if(length > 1){
+            alert("Please enter one character");
+        }
+        else{
+            socket.send(data);
+            commsLog.innerHTML += '<tr>' +
+            '<td class="commslog-data"></td>' +
+            '<td class="commslog-data">' + htmlEscape(data) + '</td></tr>';
+        }
+    };
+
+
+ connectButton.onclick = function() {
+        stateLabel.innerHTML = "Connecting";
+        socket = new WebSocket(connectionUrl.value);
+        socket.onopen = function (event) {
+            updateState();
+            commsLog.innerHTML += '<tr>' +
+                '<td colspan="3" class="commslog-data"></td>' +
+            '</tr>';
+        };
+        socket.onclose = function (event) {
+            updateState();
+            commsLog.innerHTML += '<tr>' +
+                '<td colspan="3" class="commslog-data"> ' + htmlEscape(event.reason) + '</td>' +
+            '</tr>';
+        };
+
+        let counter = 1;
+
+        socket.onerror = updateState;
+        socket.onmessage = function (event) {             
+            commsLog.innerHTML += '<tr>' +      
+                '<td class="commslog-data">' + htmlEscape(event.data) + '</td></tr>';
+                  if(event.data == 'Incorrect' || event.data == 'Used letter' || event.data == 'You Lost!!!'){
+                    counter++;
+                    hangman.src = "hangman" + counter + ".png";
+                  } else if (event.data == 'You Win!!!') {
+                        alert("You win!")
+                        closeButton.click();
+                  } 
+                  if(event.data == 'You Lost!!!'){
+                        alert("You Lose!")
+                        closeButton.click();
+                  }                   
+        };
+    };
+
+
+```
 
 ### Download
 - [Hangman](https://github.com/seanafoster/Hangman/archive/refs/heads/master.zip)
