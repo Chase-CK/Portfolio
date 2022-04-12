@@ -7,6 +7,7 @@ Weber State University's Scholarship web application needed the following change
 - To update from ASP.NET 2.0 to ASP.NET 6.0
 - To do minor bug fixing
 - To have the database automatically build for easier migration 
+
 My group Was tasked to take on these objectives
   
 
