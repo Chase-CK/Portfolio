@@ -33,8 +33,8 @@ To create an asynchronous hangman game with user login validation, and registrat
 
 
 PHP game logic code
-` 
-<?php    
+
+` <?php    
     if ($submitbutton){        
         if (($guess > 0) && ($guess < 101)){
             if ($guess < $_COOKIE["rand"]) {
@@ -96,8 +96,8 @@ PHP game logic code
 
 PHP capture user and hash password code
 
-`
-  function genRandStr($numLetters){
+
+ ` function genRandStr($numLetters){
     $randString="";
     $chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     for($i=0; $i<$numLetters; $i++){
